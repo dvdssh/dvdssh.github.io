@@ -1,827 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Sung - Growth Marketer | Scaling Brands to Millions</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --pastel-lavender: #E6E6FA;
-            --pastel-mint: #C1F0DC;
-            --pastel-peach: #FFD4B8;
-            --pastel-blue: #CADEFC;
-            --pastel-pink: #FFD6E8;
-            --pastel-yellow: #FFF9C4;
-            --text-dark: #2D3142;
-            --text-gray: #5A6079;
-            --bg-white: #FFFFFF;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-white);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(45, 49, 66, 0.1);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-gray);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-dark);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .hero-text .highlight {
-            background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-blue));
-            padding: 0.2rem 1rem;
-            border-radius: 12px;
-            display: inline-block;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--text-dark);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(45, 49, 66, 0.2);
-        }
-
-        .btn-secondary {
-            background: var(--pastel-mint);
-            color: var(--text-dark);
-        }
-
-        .btn-secondary:hover {
-            background: #B0E5CC;
-            transform: translateY(-2px);
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 500px;
-        }
-
-        .visual-card {
-            position: absolute;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .visual-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-1 {
-            background: var(--pastel-lavender);
-            top: 0;
-            left: 0;
-            width: 280px;
-            z-index: 3;
-        }
-
-        .card-2 {
-            background: var(--pastel-peach);
-            top: 100px;
-            right: 0;
-            width: 250px;
-            z-index: 2;
-        }
-
-        .card-3 {
-            background: var(--pastel-mint);
-            bottom: 0;
-            left: 80px;
-            width: 260px;
-            z-index: 1;
-        }
-
-        .visual-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .visual-card p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 8rem 0;
-            background: linear-gradient(180deg, var(--bg-white) 0%, var(--pastel-blue) 100%);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .skill-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .tag {
-            background: var(--pastel-lavender);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 8rem 0;
-            background: var(--bg-white);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            border-radius: 24px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-peach));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .project-card:nth-child(2) .project-image {
-            background: linear-gradient(135deg, var(--pastel-mint), var(--pastel-blue));
-        }
-
-        .project-card:nth-child(3) .project-image {
-            background: linear-gradient(135deg, var(--pastel-peach), var(--pastel-pink));
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .project-content p {
-            color: var(--text-gray);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            padding: 0.75rem 1.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .link-primary {
-            background: var(--text-dark);
-            color: white;
-        }
-
-        .link-primary:hover {
-            background: #1a1d2e;
-        }
-
-        .link-secondary {
-            background: var(--pastel-mint);
-            color: var(--text-dark);
-        }
-
-        .link-secondary:hover {
-            background: #B0E5CC;
-        }
-
-        /* Experience Section */
-        .experience {
-            padding: 8rem 0;
-            background: linear-gradient(180deg, var(--pastel-yellow) 0%, var(--pastel-peach) 100%);
-        }
-
-        .timeline {
-            max-width: 800px;
-            margin: 3rem auto 0;
-        }
-
-        .timeline-item {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .timeline-date {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-gray);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .timeline-company {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        .timeline-item p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 8rem 0;
-            background: var(--bg-white);
-        }
-
-        .contact-content {
-            max-width: 700px;
-            margin: 3rem auto 0;
-            text-align: center;
-        }
-
-        .contact-content p {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-method {
-            background: var(--pastel-lavender);
-            padding: 1.5rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .contact-method:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-method:nth-child(2) {
-            background: var(--pastel-mint);
-        }
-
-        .contact-method:nth-child(3) {
-            background: var(--pastel-peach);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        footer p {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 2.25rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-    </style>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>David Sung — Growth Marketer | Paid Media, Lifecycle & SEO</title>
+<meta name="description" content="Growth marketer who scaled a global storefront from $0 to $10M, manages $10M+ in annual paid media across Meta, Google and YouTube, and builds lifecycle channels from scratch.">
+<link rel="canonical" href="https://dvdssh.github.io/">
+
+<!-- Open Graph / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dvdssh.github.io/">
+<meta property="og:title" content="David Sung — Growth Marketer">
+<meta property="og:description" content="I turn ad spend into revenue that compounds. $0→$10M scaled, $10M+/yr managed across Meta, Google and YouTube.">
+<meta property="og:image" content="https://dvdssh.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="David Sung">
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="David Sung — Growth Marketer">
+<meta name="twitter:description" content="I turn ad spend into revenue that compounds. $0→$10M scaled, $10M+/yr managed across Meta, Google and YouTube.">
+<meta name="twitter:image" content="https://dvdssh.github.io/og-image.png">
+
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1014" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2316181D'/%3E%3Ctext x='50' y='50' font-family='Georgia,serif' font-size='54' font-weight='700' fill='%23E8543A' text-anchor='middle' dominant-baseline='central'%3EDS%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "David Sung",
+  "url": "https://dvdssh.github.io/",
+  "jobTitle": "Senior Digital Ads Manager",
+  "worksFor": { "@type": "Organization", "name": "Cro Metrics" },
+  "knowsAbout": ["Paid Media","Performance Marketing","Growth Strategy","Email Marketing","SMS Marketing","SEO","Conversion Rate Optimization"],
+  "sameAs": ["https://linkedin.com/in/sungdavid","https://github.com/dvdssh"]
+}
+</script>
+
+<style>
+/* ============ tokens ============ */
+:root{
+  --paper:#FBFAF7;
+  --paper-2:#F3F1EC;
+  --ink:#16181D;
+  --ink-2:#4A4F5C;
+  --ink-3:#7B8090;
+  --line:rgba(22,24,29,.12);
+  --line-2:rgba(22,24,29,.07);
+  --accent:#E8543A;
+  --accent-ink:#B93A24;
+  --accent-tint:#FDEBE6;
+  --card:#FFFFFF;
+  --shadow:0 1px 2px rgba(22,24,29,.04), 0 8px 24px rgba(22,24,29,.06);
+  --shadow-lg:0 2px 4px rgba(22,24,29,.05), 0 18px 48px rgba(22,24,29,.11);
+  --radius:16px;
+  --maxw:1120px;
+  --serif:'Space Grotesk',system-ui,sans-serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#0E1014; --paper-2:#15181E;
+    --ink:#F0EEEA; --ink-2:#B4B8C2; --ink-3:#868B98;
+    --line:rgba(240,238,234,.14); --line-2:rgba(240,238,234,.07);
+    --accent:#FF6B4E; --accent-ink:#FF8A72; --accent-tint:rgba(255,107,78,.13);
+    --card:#171A21;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.35), 0 18px 48px rgba(0,0,0,.42);
+  }
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:0 0 10px 0;z-index:2000;font-weight:600}
+.skip:focus{left:0}
+
+:where(a,button,summary,input,textarea):focus-visible{
+  outline:2.5px solid var(--accent);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ============ nav ============ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:1000;
+  background:color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease, background .25s ease;
+}
+.nav.stuck{border-bottom-color:var(--line);background:color-mix(in srgb, var(--paper) 94%, transparent)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.brand{
+  font-family:var(--serif);font-weight:700;font-size:1.15rem;
+  text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;
+}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+.navlinks{display:flex;gap:34px;list-style:none;align-items:center}
+.navlinks a{
+  text-decoration:none;color:var(--ink-2);font-size:.925rem;font-weight:500;
+  position:relative;padding:4px 0;transition:color .2s ease;
+}
+.navlinks a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
+  transition:transform .25s ease;
+}
+.navlinks a:hover{color:var(--ink)}
+.navlinks a:hover::after{transform:scaleX(1)}
+
+.navcta{
+  text-decoration:none;background:var(--ink);color:var(--paper);
+  padding:9px 18px;border-radius:9px;font-size:.9rem;font-weight:600;
+  transition:transform .2s ease, opacity .2s ease;white-space:nowrap;
+}
+.navcta:hover{transform:translateY(-1px);opacity:.9}
+
+.burger{
+  display:none;background:none;border:1px solid var(--line);
+  border-radius:9px;width:42px;height:42px;cursor:pointer;
+  align-items:center;justify-content:center;flex:none;color:var(--ink);
+}
+.burger span{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:background .2s ease}
+.burger span::before,.burger span::after{
+  content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;
+  transition:transform .25s ease, top .25s ease;
+}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{top:0;transform:rotate(45deg)}
+.nav.open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* ============ hero ============ */
+.hero{padding:clamp(120px,17vh,180px) 0 clamp(56px,8vh,88px)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent-ink);background:var(--accent-tint);
+  padding:7px 14px;border-radius:100px;margin-bottom:26px;
+}
+.eyebrow .pulse{
+  width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+
+h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(2.45rem,6.2vw,4.15rem);
+  line-height:1.05;letter-spacing:-.032em;
+  max-width:16ch;margin-bottom:26px;
+}
+h1 .mark{
+  color:var(--accent);
+  background:linear-gradient(transparent 62%, var(--accent-tint) 62%);
+}
+.lede{
+  font-size:clamp(1.05rem,2.1vw,1.235rem);
+  color:var(--ink-2);max-width:60ch;line-height:1.72;margin-bottom:36px;
+}
+.lede strong{color:var(--ink);font-weight:600}
+
+.btnrow{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 26px;border-radius:11px;text-decoration:none;
+  font-weight:600;font-size:.98rem;border:1px solid transparent;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn svg{width:16px;height:16px;flex:none}
+.btn-primary{background:var(--ink);color:var(--paper);box-shadow:var(--shadow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:var(--paper-2);transform:translateY(-2px)}
+
+/* ============ metrics ============ */
+.metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+.metrics .grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.metric{padding:38px 30px;border-right:1px solid var(--line-2)}
+.metric:last-child{border-right:none}
+.metric .num{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(1.85rem,3.6vw,2.6rem);
+  letter-spacing:-.03em;line-height:1;color:var(--ink);
+  display:block;margin-bottom:9px;
+}
+.metric .num em{font-style:normal;color:var(--accent)}
+.metric .lbl{font-size:.875rem;color:var(--ink-3);line-height:1.5}
+
+/* ============ sections ============ */
+section{padding:clamp(72px,11vh,120px) 0}
+.sechead{margin-bottom:clamp(38px,6vh,60px);max-width:62ch}
+.seclabel{
+  font-size:.775rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-ink);margin-bottom:14px;display:flex;align-items:center;gap:11px;
+}
+.seclabel::after{content:"";height:1px;flex:1;background:var(--line);max-width:70px}
+h2{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(1.85rem,4.2vw,2.75rem);
+  letter-spacing:-.028em;line-height:1.14;margin-bottom:16px;
+}
+.sechead p{color:var(--ink-2);font-size:1.05rem;max-width:56ch}
+
+/* ============ work ============ */
+.work{background:var(--paper)}
+.workgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px}
+.case{
+  background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);
+  padding:30px;display:flex;flex-direction:column;
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.case:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--line)}
+.casetop{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:6px}
+.client{
+  font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+}
+.chip{
+  font-size:.71rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line-2);
+  padding:4px 10px;border-radius:100px;white-space:nowrap;flex:none;
+}
+.headline{
+  font-family:var(--serif);font-weight:700;
+  font-size:1.95rem;letter-spacing:-.03em;line-height:1.1;
+  color:var(--accent);margin:8px 0 4px;
+}
+.case h3{
+  font-family:var(--sans);font-size:1.02rem;font-weight:600;
+  line-height:1.45;margin-bottom:18px;color:var(--ink);
+}
+.beats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:auto}
+.beats li{display:grid;grid-template-columns:74px 1fr;gap:12px;font-size:.915rem;line-height:1.6}
+.beats .k{
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);padding-top:5px;
+}
+.beats .v{color:var(--ink-2)}
+
+/* ============ capabilities ============ */
+.caps{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.capgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.cap{
+  background:var(--card);border:1px solid var(--line-2);
+  border-radius:var(--radius);padding:32px;
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+.cap:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.capnum{
+  font-family:var(--serif);font-size:.82rem;font-weight:700;letter-spacing:.1em;
+  color:var(--accent);margin-bottom:18px;display:block;
+}
+.cap h3{font-family:var(--serif);font-size:1.28rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px;line-height:1.25}
+.cap p{color:var(--ink-2);font-size:.955rem;line-height:1.68;margin-bottom:20px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{
+  font-size:.79rem;font-weight:500;color:var(--ink-2);
+  background:var(--paper-2);border:1px solid var(--line-2);
+  padding:5px 11px;border-radius:7px;
+}
+
+/* ============ experience ============ */
+.xp{background:var(--paper)}
+.timeline{max-width:820px;position:relative;padding-left:30px}
+.timeline::before{
+  content:"";position:absolute;left:4px;top:10px;bottom:10px;width:1.5px;background:var(--line);
+}
+.job{position:relative;padding-bottom:44px}
+.job:last-child{padding-bottom:0}
+.job::before{
+  content:"";position:absolute;left:-30px;top:8px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--ink-3);
+}
+.job.now::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-tint)}
+.dates{
+  font-size:.82rem;font-weight:600;letter-spacing:.05em;color:var(--ink-3);
+  font-variant-numeric:tabular-nums;margin-bottom:7px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.badge{
+  font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--accent-ink);background:var(--accent-tint);padding:3px 9px;border-radius:100px;
+}
+.job h3{font-family:var(--serif);font-size:1.36rem;font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-bottom:3px}
+.org{font-size:1rem;font-weight:500;color:var(--accent-ink);margin-bottom:13px}
+.job p{color:var(--ink-2);font-size:.965rem;line-height:1.72;max-width:64ch}
+.job ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:7px;max-width:64ch}
+.job ul li{position:relative;padding-left:19px;color:var(--ink-2);font-size:.94rem;line-height:1.62}
+.job ul li::before{content:"";position:absolute;left:2px;top:.66em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55}
+
+/* ============ contact ============ */
+.contact{background:var(--paper-2);border-top:1px solid var(--line)}
+.contactbox{
+  background:var(--card);border:1px solid var(--line-2);border-radius:22px;
+  padding:clamp(38px,6vw,64px);text-align:center;box-shadow:var(--shadow);
+}
+.contactbox h2{margin-bottom:16px}
+.contactbox > p{color:var(--ink-2);font-size:1.08rem;max-width:50ch;margin:0 auto 34px;line-height:1.72}
+.links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.link{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;border-radius:11px;text-decoration:none;
+  font-weight:600;font-size:.96rem;border:1px solid var(--line);
+  color:var(--ink);background:var(--paper);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.link:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--ink-3)}
+.link.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.link svg{width:17px;height:17px;flex:none}
+
+/* ============ footer ============ */
+footer{background:var(--paper);border-top:1px solid var(--line);padding:34px 0}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+footer p{color:var(--ink-3);font-size:.88rem}
+footer nav{display:flex;gap:22px}
+footer nav a{color:var(--ink-3);font-size:.88rem;text-decoration:none;transition:color .2s ease}
+footer nav a:hover{color:var(--ink)}
+
+/* ============ reveal ============ */
+.js .reveal{opacity:0;transform:translateY(22px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1)}
+
+/* ============ responsive ============ */
+@media (max-width:920px){
+  .metrics .grid{grid-template-columns:repeat(2,1fr)}
+  .metric{border-bottom:1px solid var(--line-2)}
+  .metric:nth-child(2n){border-right:none}
+  .metric:nth-child(n+3){border-bottom:none}
+}
+@media (max-width:780px){
+  body{font-size:16px}
+  .burger{display:flex}
+  .navcta{display:none}
+  .navlinks{
+    position:absolute;top:72px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:8px 0;box-shadow:var(--shadow-lg);
+    display:none;
+  }
+  .nav.open .navlinks{display:flex}
+  .navlinks a{padding:15px clamp(20px,5vw,40px);font-size:1.02rem;color:var(--ink)}
+  .navlinks a::after{display:none}
+  .navlinks li + li a{border-top:1px solid var(--line-2)}
+  h1{max-width:none}
+  .timeline{padding-left:26px}
+  .job::before{left:-26px}
+  .beats li{grid-template-columns:1fr;gap:2px}
+  .beats .k{padding-top:0}
+  .links{flex-direction:column}
+  .link{justify-content:center}
+  footer .wrap{flex-direction:column;text-align:center}
+}
+@media (max-width:520px){
+  .metrics .grid{grid-template-columns:1fr}
+  .metric{border-right:none;padding:26px 20px}
+  .metric:nth-child(n+3){border-bottom:1px solid var(--line-2)}
+  .metric:last-child{border-bottom:none}
+  .btnrow{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+@media print{
+  .nav,.btnrow,.links,footer nav{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  section{padding:18px 0;break-inside:avoid}
+  .case,.cap,.job{break-inside:avoid}
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">David Sung</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ nav ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot"></span>David Sung</a>
+    <nav aria-label="Main">
+      <ul class="navlinks" id="menu">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+    <a href="#contact" class="navcta">Get in touch</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm <span class="highlight">David Sung</span> — I scale brands from zero to millions.</h1>
-                    <p>Growth Marketer specializing in paid media, performance marketing, and data-driven strategies that turn startups into market leaders.</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="visual-card card-1">
-                        <h3>Strategy</h3>
-                        <p>Data-driven growth strategies that deliver results</p>
-                    </div>
-                    <div class="visual-card card-2">
-                        <h3>Scale</h3>
-                        <p>Taking brands from 0 to $10M+ in revenue</p>
-                    </div>
-                    <div class="visual-card card-3">
-                        <h3>Optimize</h3>
-                        <p>Maximizing ROI across all marketing channels</p>
-                    </div>
-                </div>
-            </div>
+<main id="main">
+
+<!-- ============ hero ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow"><span class="pulse"></span>Open to new opportunities</div>
+    <h1>I turn ad spend into revenue that <span class="mark">compounds</span>.</h1>
+    <p class="lede">
+      Growth marketer working across paid media, lifecycle and organic search. I scaled
+      SM Entertainment's global storefront from <strong>$0 to $10M</strong>, manage
+      <strong>$10M+ in annual budget</strong> across Meta, Google and YouTube, and build
+      email/SMS channels from nothing into eight-figure revenue drivers.
+    </p>
+    <div class="btnrow">
+      <a href="#work" class="btn btn-primary">
+        See the work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ metrics ============ -->
+<div class="metrics">
+  <div class="wrap">
+    <div class="grid">
+      <div class="metric reveal">
+        <span class="num">$0<em>→</em>$10M</span>
+        <span class="lbl">Storefront revenue scaled from launch</span>
+      </div>
+      <div class="metric reveal">
+        <span class="num">$10M<em>+</em></span>
+        <span class="lbl">Annual paid media budget managed</span>
+      </div>
+      <div class="metric reveal">
+        <span class="num">300<em>%</em></span>
+        <span class="lbl">Lift in monthly qualified leads</span>
+      </div>
+      <div class="metric reveal">
+        <span class="num">100K<em>+</em></span>
+        <span class="lbl">App installs in first month post-launch</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ work ============ -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="seclabel">Selected work</div>
+      <h2>Six problems, and what moved the number.</h2>
+      <p>Every engagement below is framed the same way: what was stuck, what I changed, and what it produced.</p>
+    </div>
+
+    <div class="workgrid">
+
+      <article class="case reveal">
+        <div class="casetop"><span class="client">SM Entertainment</span><span class="chip">E-commerce</span></div>
+        <div class="headline">$0 → $10M</div>
+        <h3>Built the Western storefront from launch to eight figures</h3>
+        <ul class="beats">
+          <li><span class="k">Problem</span><span class="v">A global fanbase with no direct-to-consumer channel outside Korea.</span></li>
+          <li><span class="k">Action</span><span class="v">Stood up full-funnel acquisition across Meta, Google, YouTube — $10M annual budget, structured around ROAS floors by market.</span></li>
+          <li><span class="k">Result</span><span class="v">$10M in revenue, with paid held profitable through the scale-up.</span></li>
+        </ul>
+      </article>
+
+      <article class="case reveal">
+        <div class="casetop"><span class="client">DoorDash</span><span class="chip">Marketplace</span></div>
+        <div class="headline">+15%</div>
+        <h3>Lifted sign-ups by restructuring metro-level search</h3>
+        <ul class="beats">
+          <li><span class="k">Problem</span><span class="v">Google and Meta accounts were flattened across metros, hiding which cities actually converted.</span></li>
+          <li><span class="k">Action</span><span class="v">Rebuilt Google Ads around metropolitan segmentation and reworked the Meta account structure to match.</span></li>
+          <li><span class="k">Result</span><span class="v">15% increase in overall sign-ups.</span></li>
+        </ul>
+      </article>
+
+      <article class="case reveal">
+        <div class="casetop"><span class="client">HackerOne</span><span class="chip">B2B SaaS</span></div>
+        <div class="headline">$1.5M</div>
+        <h3>Added pipeline through a rebuilt ABM motion</h3>
+        <ul class="beats">
+          <li><span class="k">Problem</span><span class="v">Account-based spend was spread too thin to register with target accounts.</span></li>
+          <li><span class="k">Action</span><span class="v">Tightened targeting and sequencing around a concentrated account list.</span></li>
+          <li><span class="k">Result</span><span class="v">30% more lead conversions and $1.5M in added pipeline.</span></li>
+        </ul>
+      </article>
+
+      <article class="case reveal">
+        <div class="casetop"><span class="client">DataStream Insurance</span><span class="chip">Insurance</span></div>
+        <div class="headline">+300%</div>
+        <h3>Tripled qualified leads alongside a site rebuild</h3>
+        <ul class="beats">
+          <li><span class="k">Problem</span><span class="v">A new website was shipping with no SEO plan and paid running against the old structure.</span></li>
+          <li><span class="k">Action</span><span class="v">Rebuilt technical SEO and paid strategy in step with the launch so neither channel lost ground.</span></li>
+          <li><span class="k">Result</span><span class="v">Monthly MQLs up more than 300%.</span></li>
+        </ul>
+      </article>
+
+      <article class="case reveal">
+        <div class="casetop"><span class="client">SM Global Shop</span><span class="chip">Mobile</span></div>
+        <div class="headline">100K+</div>
+        <h3>Launched the app to six figures of installs in month one</h3>
+        <ul class="beats">
+          <li><span class="k">Problem</span><span class="v">A new app with no install base and a hard launch window.</span></li>
+          <li><span class="k">Action</span><span class="v">Ran go-to-market as paid acquisition plus influencer partnerships timed to the release.</span></li>
+          <li><span class="k">Result</span><span class="v">100K+ downloads inside the first month.</span></li>
+        </ul>
+      </article>
+
+      <article class="case reveal">
+        <div class="casetop"><span class="client">SM Global Shop</span><span class="chip">Lifecycle</span></div>
+        <div class="headline">$0 → $2M</div>
+        <h3>Built email and SMS into a third of e-commerce revenue</h3>
+        <ul class="beats">
+          <li><span class="k">Problem</span><span class="v">No owned channel — every sale was re-bought through paid.</span></li>
+          <li><span class="k">Action</span><span class="v">Built segmentation and automation flows from zero across email and SMS.</span></li>
+          <li><span class="k">Result</span><span class="v">$2M annual revenue, driving 30%+ of total e-commerce sales.</span></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ capabilities ============ -->
+<section class="caps" id="capabilities">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="seclabel">Capabilities</div>
+      <h2>What I'm brought in to fix.</h2>
+    </div>
+    <div class="capgrid">
+
+      <div class="cap reveal">
+        <span class="capnum">01</span>
+        <h3>Paid media &amp; performance</h3>
+        <p>Scaling spend without losing efficiency. Account structure, creative testing cadence, and budget allocation across platforms — managed at $10M+ annual scale.</p>
+        <div class="tags">
+          <span class="tag">Meta Ads</span><span class="tag">Google Ads</span>
+          <span class="tag">YouTube</span><span class="tag">Creative testing</span>
+          <span class="tag">Budget allocation</span>
         </div>
-    </section>
+      </div>
 
-    <!-- About/Skills Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">What I Do</div>
-                <h2 class="section-title">Skills & Expertise</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">📈</div>
-                    <h3>Paid Media & Performance Marketing</h3>
-                    <p>Expert in scaling revenue through paid channels. Managed $10M+ annual budgets across Meta, Google, and YouTube advertising platforms.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Facebook Ads</span>
-                        <span class="tag">Instagram Ads</span>
-                        <span class="tag">Google Ads</span>
-                        <span class="tag">YouTube Ads</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🚀</div>
-                    <h3>Growth Strategy & Scaling</h3>
-                    <p>Proven track record of taking businesses from zero to millions. Expert in customer acquisition, retention, and lifetime value optimization.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Growth Hacking</span>
-                        <span class="tag">A/B Testing</span>
-                        <span class="tag">Conversion Optimization</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📊</div>
-                    <h3>Email/SMS & SEO</h3>
-                    <p>Built email/SMS channels from scratch to $2M+ in revenue. Deep expertise in technical SEO and organic growth strategies.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Email Marketing</span>
-                        <span class="tag">SMS Marketing</span>
-                        <span class="tag">SEO</span>
-                        <span class="tag">Analytics</span>
-                    </div>
-                </div>
-            </div>
+      <div class="cap reveal">
+        <span class="capnum">02</span>
+        <h3>Growth strategy &amp; CRO</h3>
+        <p>Finding where the funnel actually leaks. Acquisition economics, retention, and lifetime value — plus the experimentation program to keep improving them.</p>
+        <div class="tags">
+          <span class="tag">A/B testing</span><span class="tag">CRO</span>
+          <span class="tag">LTV modeling</span><span class="tag">Retention</span>
+          <span class="tag">Funnel analysis</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">My Work</div>
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🎯</div>
-                    <div class="project-content">
-                        <h3>SM Global Shop: 0 to $10M</h3>
-                        <p>Scaled SM Entertainment's Western market expansion store from zero to $10M in revenue. Managed $10M annual budget across Facebook, Instagram, Google, and YouTube ads with exceptional ROAS.</p>
-                        <div class="project-links">
-                            <a href="#contact" class="project-link link-primary">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">🚗</div>
-                    <div class="project-content">
-                        <h3>DoorDash: 15% Increase in Sign-Ups</h3>
-                        <p>Optimized DoorDash paid media accounts across Google and Facebook, revamping Google Ads strategy for metropolitan cities. Delivered 15% increase in overall sign-ups through strategic campaign restructuring.</p>
-                        <div class="project-links">
-                            <a href="#contact" class="project-link link-primary">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">🎯</div>
-                    <div class="project-content">
-                        <h3>HackerOne: $1.5M Pipeline Revenue</h3>
-                        <p>Optimized account-based marketing strategy for HackerOne, resulting in 30% increase in lead conversions and $1.5M in additional pipeline revenue through targeted B2B campaigns.</p>
-                        <div class="project-links">
-                            <a href="#contact" class="project-link link-primary">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">📈</div>
-                    <div class="project-content">
-                        <h3>DataStream Insurance: 300% MQL Growth</h3>
-                        <p>Revamped SEO and paid media strategy alongside new website launch for DataStream Insurance. Increased monthly marketing qualified leads by over 300% through comprehensive digital transformation.</p>
-                        <div class="project-links">
-                            <a href="#contact" class="project-link link-primary">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">📱</div>
-                    <div class="project-content">
-                        <h3>SM Global Shop App Launch</h3>
-                        <p>Led go-to-market strategy for SM Global Shop mobile app. Achieved 100K+ downloads in the first month through targeted paid acquisition and influencer partnerships.</p>
-                        <div class="project-links">
-                            <a href="#contact" class="project-link link-primary">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">💌</div>
-                    <div class="project-content">
-                        <h3>Email/SMS Channel: 0 to $2M</h3>
-                        <p>Built email and SMS marketing channels from ground zero to $2M in annual revenue. Implemented segmentation strategies and automation flows that drove 30%+ of e-commerce revenue.</p>
-                        <div class="project-links">
-                            <a href="#contact" class="project-link link-primary">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="cap reveal">
+        <span class="capnum">03</span>
+        <h3>Lifecycle &amp; organic</h3>
+        <p>Building the channels you own, so growth stops depending entirely on rented traffic. Email, SMS, and technical SEO from first principles.</p>
+        <div class="tags">
+          <span class="tag">Email</span><span class="tag">SMS</span>
+          <span class="tag">Technical SEO</span><span class="tag">Automation</span>
+          <span class="tag">Segmentation</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Career Journey</div>
-                <h2 class="section-title">Work Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Present</div>
-                    <h3>Senior Digital Ads Manager</h3>
-                    <div class="timeline-company">Cro Metrics</div>
-                    <p>Leading paid media strategy and execution for high-growth DTC brands. Optimizing multi-million dollar ad budgets across Meta, Google, and emerging platforms to drive profitable customer acquisition.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Previous</div>
-                    <h3>Growth Marketing Lead</h3>
-                    <div class="timeline-company">SM Entertainment (SM Global Shop)</div>
-                    <p>Scaled SM Entertainment's Western market e-commerce from 0 to $10M in revenue. Managed $10M+ annual paid media budget across Facebook, Instagram, Google, and YouTube. Built email/SMS channel from scratch to $2M annual revenue. Led mobile app launch achieving 100K+ downloads in first month.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Previous Roles</div>
-                    <h3>Growth & Digital Marketing</h3>
-                    <div class="timeline-company">Savant Culture • URi Global • Joomba • JustStorage</div>
-                    <p>Built and scaled digital marketing operations for multiple startups and growth-stage companies. Specialized in paid acquisition, conversion rate optimization, and revenue growth across e-commerce and SaaS business models.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Let's Work Together</h2>
-            </div>
-            <div class="contact-content">
-                <p>I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!</p>
-                <div class="contact-methods">
-                    <a href="mailto:david@davidsung.com" class="contact-method">
-                        <span>📧</span> Email Me
-                    </a>
-                    <a href="https://linkedin.com/in/sungdavid" class="contact-method" target="_blank">
-                        <span>💼</span> LinkedIn
-                    </a>
-                    <a href="https://github.com/dvdssh" class="contact-method" target="_blank">
-                        <span>👨‍💻</span> GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ============ experience ============ -->
+<section class="xp" id="experience">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="seclabel">Experience</div>
+      <h2>Where I've done it.</h2>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2024 David Sung. Growth Marketer specializing in scaling brands.</p>
-        </div>
-    </footer>
+    <div class="timeline">
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+      <div class="job now reveal">
+        <div class="dates">Present <span class="badge">Current</span></div>
+        <h3>Senior Digital Ads Manager</h3>
+        <div class="org">Cro Metrics</div>
+        <p>Paid media strategy and execution for high-growth DTC and B2B brands, optimizing multi-million dollar budgets across Meta, Google and emerging platforms.</p>
+        <ul>
+          <li>Rebuilt DoorDash's metro-level search structure — 15% lift in sign-ups</li>
+          <li>Retooled HackerOne's ABM targeting — $1.5M added pipeline</li>
+          <li>Led SEO and paid for DataStream Insurance's relaunch — 300%+ MQL growth</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="dates">Previous</div>
+        <h3>Growth Marketing Lead</h3>
+        <div class="org">SM Entertainment · SM Global Shop</div>
+        <p>Owned growth for SM Entertainment's Western market e-commerce arm, from storefront launch through eight-figure scale.</p>
+        <ul>
+          <li>Scaled revenue from $0 to $10M</li>
+          <li>Managed $10M+ annual paid budget across Meta, Google and YouTube</li>
+          <li>Built email/SMS from scratch to $2M annual revenue — 30%+ of total sales</li>
+          <li>Led the mobile app launch to 100K+ downloads in month one</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="dates">Previous Roles</div>
+        <h3>Growth &amp; Digital Marketing</h3>
+        <div class="org">Savant Culture · URi Global · Joomba · JustStorage</div>
+        <p>Built and scaled digital marketing operations for startups and growth-stage companies across e-commerce and SaaS — paid acquisition, conversion rate optimization, and revenue growth.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ contact ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contactbox reveal">
+      <div class="seclabel" style="justify-content:center">Contact</div>
+      <h2>Let's talk about your growth problem.</h2>
+      <p>Whether it's paid media that's stopped scaling, a channel you haven't built yet, or a launch you need to land — I'd like to hear about it.</p>
+      <div class="links">
+        <a href="mailto:dsung1993@gmail.com" class="link solid">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          Email me
+        </a>
+        <a href="https://linkedin.com/in/sungdavid" class="link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.02H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/dvdssh" class="link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.08-.75.09-.73.09-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.32.47-2.39 1.24-3.23-.14-.3-.54-1.53.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.62-2.8 5.64-5.48 5.94.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3Z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="yr">2026</span> David Sung</p>
+    <nav aria-label="Footer">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // mobile menu
+  var nav = document.getElementById('nav'),
+      burger = document.getElementById('burger'),
+      menu = document.getElementById('menu');
+
+  function closeMenu(){
+    nav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }
+
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+
+  menu.addEventListener('click', function(e){
+    if (e.target.closest('a')) closeMenu();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // sticky nav border
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      nav.classList.toggle('stuck', window.scrollY > 12);
+      ticking = false;
+    });
+  }, {passive:true});
+
+  // scroll reveal — content must NEVER stay hidden, effect is optional
+  var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+  // Set the final values inline with transitions off. A CSS transition also needs
+  // frames to advance, so toggling the class alone would still leave content at
+  // opacity 0 in a document that never paints.
+  function revealAll(){
+    targets.forEach(function(el){
+      el.style.transition = 'none';
+      el.style.transitionDelay = '0ms';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.classList.add('in');
+    });
+  }
+
+  // If the page is printed, force everything visible first.
+  window.addEventListener('beforeprint', revealAll);
+
+  if (!('IntersectionObserver' in window)) {
+    revealAll();
+  } else {
+    try {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          // stagger siblings within the same grid
+          var sibs = Array.prototype.slice.call(el.parentNode.children);
+          el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 70 + 'ms';
+          el.classList.add('in');
+          io.unobserve(el);
         });
+      }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+      targets.forEach(function(el){ io.observe(el); });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+      // Canary: IntersectionObserver only delivers callbacks when the document is
+      // producing frames. In embedded webviews, background/offscreen tabs and some
+      // in-app browsers it never fires, which would leave the page permanently blank.
+      // If rAF hasn't run shortly after load, abandon the effect and show everything.
+      var painting = false;
+      requestAnimationFrame(function(){ painting = true; });
+      setTimeout(function(){
+        if (!painting) { io.disconnect(); revealAll(); }
+      }, 900);
+    } catch (err) {
+      revealAll();
+    }
+  }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.skill-card, .project-card, .timeline-item');
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.9)';
-                nav.style.boxShadow = 'none';
-            }
-        });
-    </script>
+  // footer year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
